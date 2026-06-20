@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modeling with Modern C# Types — Simon Gelbart</title>
+  <meta name="description" content="First module of the Modern C# Type System learning path: identity, value, records, equality, strongly typed IDs, value objects, and state modeling.">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Simon Gelbart</a>
+    <nav aria-label="Main navigation">
+      <a href="/projects/">Projects</a>
+      <a href="/learning-paths/" aria-current="page">Learning Paths</a>
+      <a href="/notes/">Notes</a>
+      <a href="/about.html">About</a>
+      <a href="https://github.com/SimonGelbart">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <article class="page-heading narrow">
+      <p class="eyebrow">Modern C# type system · Module 01</p>
+      <h1>Modeling with modern C# types.</h1>
+      <p class="lede">
+        A practical module for backend developers who want to use C# types to express identity,
+        value, equality, stable keys, small domain concepts, and valid state transitions.
+      </p>
+      <div class="actions">
+        <a class="button" href="https://github.com/SimonGelbart/dotnet-learning-lab/tree/main/learning-paths/modern-csharp-type-system/modules/01-modeling-with-modern-csharp-types">Open source module</a>
+        <a class="button secondary" href="https://github.com/SimonGelbart/dotnet-learning-lab">Repository</a>
+      </div>
+    </article>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Learning objectives</p>
+        <h2>What you should know after this module</h2>
+      </div>
+      <ul class="feature-list">
+        <li>Explain the difference between identity and value.</li>
+        <li>Choose between <code>class</code>, <code>record class</code>, <code>struct</code>, <code>record struct</code>, and <code>readonly record struct</code>.</li>
+        <li>Predict how generated equality affects <code>HashSet&lt;T&gt;</code> and <code>Dictionary&lt;TKey, TValue&gt;</code>.</li>
+        <li>Replace ambiguous primitive IDs with strongly typed IDs.</li>
+        <li>Model valid states with explicit types instead of boolean flags and nullable fields.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card large-card">
+        <p class="tag">Core idea</p>
+        <h2>A good type makes the valid path natural.</h2>
+        <p>
+          Modern C# features are not only syntax shortcuts. Used deliberately, they communicate whether
+          a concept is a long-lived entity, a value equal by content, a stable key, or a state that carries
+          only the data valid for that state.
+        </p>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Module path</p>
+        <h2>The progression</h2>
+      </div>
+      <ol class="feature-list">
+        <li>Identity vs value.</li>
+        <li>Records and generated equality.</li>
+        <li>Stable keys for hash-based collections.</li>
+        <li>Strongly typed IDs.</li>
+        <li>Value objects.</li>
+        <li><code>record struct</code> mutability vs <code>readonly record struct</code>.</li>
+        <li>Type-driven state modeling.</li>
+        <li>Serialization choices for record hierarchies.</li>
+      </ol>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="eyebrow">Run the samples</p>
+        <h2>Start from the runnable demos</h2>
+      </div>
+      <div class="card large-card">
+        <pre><code>dotnet run --project learning-paths/modern-csharp-type-system/src/DomainTypes.Samples -- --all</code></pre>
+        <p>
+          Run the focused demos for collections, strongly typed IDs, and state modeling:
+        </p>
+        <pre><code>dotnet run --project learning-paths/modern-csharp-type-system/src/DomainTypes.Samples -- --demo collections
+dotnet run --project learning-paths/modern-csharp-type-system/src/DomainTypes.Samples -- --demo ids
+dotnet run --project learning-paths/modern-csharp-type-system/src/DomainTypes.Samples -- --demo state-modeling</code></pre>
+      </div>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Exercises</p>
+        <h2>Practice prompts</h2>
+      </div>
+      <ul class="feature-list">
+        <li>Replace a method with several <code>Guid</code> parameters by strongly typed IDs.</li>
+        <li>Break a dictionary lookup with a mutable key, then fix it with a stable value key.</li>
+        <li>Model an onboarding workflow with explicit states instead of flags and nullable fields.</li>
+      </ul>
+    </section>
+
+    <section class="section">
+      <div class="card large-card">
+        <p class="tag">Source of truth</p>
+        <h2>Read the full module in the repository.</h2>
+        <p>
+          The GitHub Pages version is intentionally a public entry point. The complete module text,
+          French companion README, samples, benchmarks, and future exercises live in the repository.
+        </p>
+        <p>
+          <a href="https://github.com/SimonGelbart/dotnet-learning-lab/tree/main/learning-paths/modern-csharp-type-system/modules/01-modeling-with-modern-csharp-types">Open Module 01 on GitHub</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© Simon Gelbart</span>
+    <span><a href="/learning-paths/">Learning Paths</a></span>
+  </footer>
+</body>
+</html>
