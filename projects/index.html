@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Simon Gelbart</title>
+  <meta name="description" content="Personal backend tooling and architecture projects by Simon Gelbart.">
+  <link rel="stylesheet" href="/assets/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/">Simon Gelbart</a>
+    <nav aria-label="Main navigation">
+      <a href="/projects/" aria-current="page">Projects</a>
+      <a href="/notes/">Notes</a>
+      <a href="/about.html">About</a>
+      <a href="https://github.com/SimonGelbart">GitHub</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-heading">
+      <p class="eyebrow">Projects</p>
+      <h1>Backend tools, libraries, and architecture labs.</h1>
+      <p class="lede">
+        This is a curated view of personal projects. The goal is not to list everything, but to
+        explain the systems that best represent my interests in tooling, architecture, and practical backend design.
+      </p>
+    </section>
+
+    <section class="grid two-columns">
+      <article class="card large-card">
+        <p class="tag">Flagship library</p>
+        <h2><a href="https://github.com/SimonGelbart/pattrn">Pattrn</a></h2>
+        <p>
+          A fast immutable segmented-pattern matching library for .NET. Pattrn explores how to keep
+          a matching core small and dependency-free while layering string helpers, dependency injection,
+          and routing-specific behavior around it.
+        </p>
+        <dl class="metadata">
+          <div><dt>Stack</dt><dd>C# / .NET</dd></div>
+          <div><dt>Focus</dt><dd>API design, matching semantics, package boundaries, performance</dd></div>
+          <div><dt>Status</dt><dd>Active development</dd></div>
+        </dl>
+      </article>
+
+      <article class="card large-card">
+        <p class="tag">Technical lab</p>
+        <h2><a href="https://github.com/SimonGelbart/lorq">LORQ</a></h2>
+        <p>
+          Ledger for Orchestrated Run Quality. LORQ focuses on reproducible agent, tool, and skill
+          evaluation runs with evidence capture, package integrity, adapter conformance, and reports
+          that support engineering decisions.
+        </p>
+        <dl class="metadata">
+          <div><dt>Stack</dt><dd>Python / .NET planning</dd></div>
+          <div><dt>Focus</dt><dd>Orchestration, reproducibility, evaluation, reporting</dd></div>
+          <div><dt>Status</dt><dd>Active prototype</dd></div>
+        </dl>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© Simon Gelbart</span>
+    <span><a href="/">Home</a></span>
+  </footer>
+</body>
+</html>
