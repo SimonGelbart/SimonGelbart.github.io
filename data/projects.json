@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Pattrn",
+    "slug": "pattrn",
+    "kind": "Flagship library",
+    "status": "Active development",
+    "stack": "C# / .NET",
+    "focus": "API design, matching semantics, package boundaries, performance",
+    "summary": "Fast immutable segmented-pattern matching for .NET with explicit semantics, package boundaries, diagnostics, and low-allocation hot paths.",
+    "repo": "https://github.com/SimonGelbart/pattrn",
+    "docs": "https://simongelbart.github.io/pattrn/",
+    "adr": "https://simongelbart.github.io/pattrn/adr/",
+    "roadmap": "https://simongelbart.github.io/pattrn/roadmap/"
+  },
+  {
+    "name": "LORQ",
+    "slug": "lorq",
+    "kind": "Technical lab",
+    "status": "Active prototype",
+    "stack": "Python / .NET planning",
+    "focus": "Orchestration, reproducibility, evaluation, reporting",
+    "summary": "Ledger for Orchestrated Run Quality: reproducible agent, tool, and skill evaluation runs with evidence capture, integrity, adapter conformance, and reports.",
+    "repo": "https://github.com/SimonGelbart/lorq",
+    "docs": "https://simongelbart.github.io/lorq/",
+    "adr": "https://simongelbart.github.io/lorq/adr/",
+    "roadmap": "https://simongelbart.github.io/lorq/roadmap/"
+  },
+  {
+    "name": "Modern .NET Learning Lab",
+    "slug": "dotnet-learning-lab",
+    "kind": "Learning path",
+    "status": "In progress",
+    "stack": "C# / .NET",
+    "focus": "Learning paths, talks, exercises, samples, and benchmarks",
+    "summary": "Learning paths, talks, exercises, samples, and benchmarks for modern .NET backend development.",
+    "repo": "https://github.com/SimonGelbart/dotnet-learning-lab",
+    "docs": "https://simongelbart.github.io/dotnet-learning-lab/",
+    "adr": null,
+    "roadmap": null
+  }
+]
