@@ -2,59 +2,50 @@
 
 Personal engineering lab site and global documentation hub for Simon Gelbart.
 
-This repository hosts a minimal static GitHub Pages site focused on backend tooling, architecture-heavy libraries, deterministic systems, and practical software design. It also acts as the public entry point for project documentation published from project repositories.
+This repository now uses Astro and Starlight as the shared publishing shell for the public site. It remains the global entry point for project documentation published from project repositories.
 
 ## Site role
 
-This repository is the global hub. It should contain:
+This repository owns:
 
 - the portfolio homepage;
 - project and learning-path indexes;
 - global cross-project notes;
 - lightweight project metadata under `data/`;
-- global GitHub Pages roadmap material.
+- global publishing and design-system notes.
 
 It should not duplicate full project documentation. Project docs, ADRs, tutorials, how-to guides, reference pages, and explanations live in each project repository and are published from there.
 
 ## Local preview
 
-The site is intentionally static and has no required build step.
-
 ```bash
-python -m http.server 8000
+npm install
+npm run dev
 ```
 
-Then open `http://localhost:8000`.
+Then open the local Astro dev URL shown in the terminal.
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
 
 ## Structure
 
-- `index.html` — homepage
-- `projects/index.html` — project overview and documentation entry points
-- `learning-paths/index.html` — learning material overview
-- `notes/index.html` — global design notes index
-- `about.html` — short profile
-- `assets/styles.css` — shared styling
+- `astro.config.mjs` — Astro and Starlight configuration
+- `src/pages/` — custom homepage, project, learning, notes, and about pages
+- `src/content/docs/` — Starlight documentation pages for the global publishing model
+- `src/layouts/` — shared custom page layout
+- `src/styles/` — custom site and Starlight CSS
 - `data/projects.json` — synchronized project metadata
-- `docs/github-pages-roadmap.md` — global GitHub Pages documentation roadmap
+- `.github/workflows/deploy.yml` — Astro GitHub Pages deployment workflow
 - `.github/workflows/sync-project-manifests.yml` — optional metadata synchronization workflow
 
 ## Documentation publishing model
 
-Each project repository keeps documentation source on `main`:
-
-```text
-<project>/
-  mkdocs.yml
-  docs/
-    README.md or index.md
-    adr/
-    tutorials/
-    how-to/
-    reference/
-    explanation/
-```
-
-GitHub Actions builds each project documentation site and publishes the generated artifact through GitHub Pages.
+Each project repository remains the source of truth for its own documentation. The main site links to project documentation and may synchronize lightweight `docs/project.json` manifests from project repositories.
 
 Expected public URLs:
 
@@ -62,4 +53,4 @@ Expected public URLs:
 - `https://simongelbart.github.io/lorq/`
 - `https://simongelbart.github.io/dotnet-learning-lab/`
 
-The main site links to those sites and may synchronize lightweight `docs/project.json` manifests from each project repository.
+GitHub Pages for this repository should use **GitHub Actions** as the publishing source.
