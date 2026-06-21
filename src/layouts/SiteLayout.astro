@@ -1,0 +1,31 @@
+---
+import '../styles/site.css';
+const { title = 'Simon Gelbart - Backend Engineering Lab', description = 'Backend engineering lab and global documentation hub.', current = '' } = Astro.props;
+const nav = [
+  { href: '/projects/', label: 'Projects', key: 'projects' },
+  { href: '/learning-paths/', label: 'Learning Paths', key: 'learning' },
+  { href: '/notes/', label: 'Notes', key: 'notes' },
+  { href: '/about.html', label: 'About', key: 'about' },
+];
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/">Simon Gelbart</a>
+      <nav aria-label="Main navigation">
+        {nav.map((item) => <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>{item.label}</a>)}
+        <a href="/docs/">Docs</a>
+        <a href="https://github.com/SimonGelbart">GitHub</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer"><span>© Simon Gelbart</span><span>Built with Astro and Starlight.</span></footer>
+  </body>
+</html>
