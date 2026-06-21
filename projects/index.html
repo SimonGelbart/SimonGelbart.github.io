@@ -24,20 +24,26 @@
       <p class="eyebrow">Projects</p>
       <h1>Backend tools, libraries, and architecture labs.</h1>
       <p class="lede">
-        This is a curated view of personal projects. The goal is not to list everything, but to
-        explain the systems that best represent my interests in tooling, architecture, and practical backend design.
+        This is the global entry point for source repositories, published documentation, and architectural
+        decision records. Project documentation stays in each project repository and is published through
+        its own GitHub Pages site.
       </p>
     </section>
 
     <section class="grid two-columns">
       <article class="card large-card">
         <p class="tag">Flagship library</p>
-        <h2><a href="https://github.com/SimonGelbart/pattrn">Pattrn</a></h2>
+        <h2><a href="https://simongelbart.github.io/pattrn/">Pattrn</a></h2>
         <p>
           A fast immutable segmented-pattern matching library for .NET. Pattrn explores how to keep
           a matching core small and dependency-free while layering string helpers, dependency injection,
           and routing-specific behavior around it.
         </p>
+        <div class="actions card-actions">
+          <a class="button" href="https://simongelbart.github.io/pattrn/">Documentation</a>
+          <a class="button secondary" href="https://simongelbart.github.io/pattrn/adr/">ADRs</a>
+          <a class="button secondary" href="https://github.com/SimonGelbart/pattrn">Source</a>
+        </div>
         <dl class="metadata">
           <div><dt>Stack</dt><dd>C# / .NET</dd></div>
           <div><dt>Focus</dt><dd>API design, matching semantics, package boundaries, performance</dd></div>
@@ -47,18 +53,40 @@
 
       <article class="card large-card">
         <p class="tag">Technical lab</p>
-        <h2><a href="https://github.com/SimonGelbart/lorq">LORQ</a></h2>
+        <h2><a href="https://simongelbart.github.io/lorq/">LORQ</a></h2>
         <p>
           Ledger for Orchestrated Run Quality. LORQ focuses on reproducible agent, tool, and skill
           evaluation runs with evidence capture, package integrity, adapter conformance, and reports
           that support engineering decisions.
         </p>
+        <div class="actions card-actions">
+          <a class="button" href="https://simongelbart.github.io/lorq/">Documentation</a>
+          <a class="button secondary" href="https://simongelbart.github.io/lorq/adr/">ADRs</a>
+          <a class="button secondary" href="https://github.com/SimonGelbart/lorq">Source</a>
+        </div>
         <dl class="metadata">
           <div><dt>Stack</dt><dd>Python / .NET planning</dd></div>
           <div><dt>Focus</dt><dd>Orchestration, reproducibility, evaluation, reporting</dd></div>
           <div><dt>Status</dt><dd>Active prototype</dd></div>
         </dl>
       </article>
+    </section>
+
+    <section class="section split">
+      <div>
+        <p class="eyebrow">Global model</p>
+        <h2>Project docs are published from project repositories.</h2>
+      </div>
+      <div class="card">
+        <p>
+          The main site is a hub, not a documentation mirror. It synchronizes lightweight project metadata
+          and links to each project documentation site, ADR log, roadmap, and source repository.
+        </p>
+        <div class="actions card-actions">
+          <a class="button" href="/docs/github-pages-roadmap.md">Global roadmap</a>
+          <a class="button secondary" href="/data/projects.json">Project metadata</a>
+        </div>
+      </div>
     </section>
   </main>
 

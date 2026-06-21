@@ -152,6 +152,16 @@ h3 {
   margin-top: 2rem;
 }
 
+.card-actions {
+  margin-top: 1.25rem;
+}
+
+.card-actions .button {
+  min-height: 2.25rem;
+  padding: 0.55rem 0.8rem;
+  font-size: 0.9rem;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -203,7 +213,8 @@ h3 {
 
 .card p:last-child,
 .card dl:last-child,
-.card ul:last-child {
+.card ul:last-child,
+.card .actions:last-child {
   margin-bottom: 0;
 }
 
