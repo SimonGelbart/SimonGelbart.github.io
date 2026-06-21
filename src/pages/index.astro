@@ -1,0 +1,60 @@
+---
+import SiteLayout from '../layouts/SiteLayout.astro';
+---
+<SiteLayout current="home">
+  <section class="hero">
+    <p class="eyebrow">Backend engineering lab</p>
+    <h1>Architecture-heavy libraries, docs, and learning paths for practical backend systems.</h1>
+    <p class="lede">
+      I’m Simon Gelbart, a French senior backend developer building personal projects around deterministic execution,
+      developer tooling, orchestration, and practical software design.
+    </p>
+    <div class="actions">
+      <a class="button" href="/projects/">View projects</a>
+      <a class="button secondary" href="/learning-paths/">Explore learning paths</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Featured systems</p>
+      <h2>Current work</h2>
+    </div>
+    <div class="grid two-columns">
+      <article class="card">
+        <p class="tag">Library · .NET · Pattern matching</p>
+        <h3><a href="https://simongelbart.github.io/pattrn/">Pattrn</a></h3>
+        <p>Fast immutable segmented-pattern matching for .NET, focused on explicit semantics, package boundaries, diagnostics, and low-allocation hot paths.</p>
+        <div class="actions card-actions">
+          <a class="button" href="https://simongelbart.github.io/pattrn/">Docs</a>
+          <a class="button secondary" href="https://simongelbart.github.io/pattrn/adr/">ADRs</a>
+          <a class="button secondary" href="https://github.com/SimonGelbart/pattrn">Repo</a>
+        </div>
+      </article>
+      <article class="card">
+        <p class="tag">Technical lab · Orchestration · Evaluation</p>
+        <h3><a href="https://simongelbart.github.io/lorq/">LORQ</a></h3>
+        <p>An orchestration ledger for reproducible agent, tool, and skill evaluations, with emphasis on evidence capture, integrity, adapter conformance, and reporting.</p>
+        <div class="actions card-actions">
+          <a class="button" href="https://simongelbart.github.io/lorq/">Docs</a>
+          <a class="button secondary" href="https://simongelbart.github.io/lorq/adr/">ADRs</a>
+          <a class="button secondary" href="https://github.com/SimonGelbart/lorq">Repo</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Documentation system</p>
+      <h2>A shared shell for project docs, ADRs, and learning material.</h2>
+    </div>
+    <div class="card">
+      <p>The main site becomes the coherent entry point. Project repositories remain the source of truth, while Astro and Starlight provide the shared publishing layer.</p>
+      <div class="actions card-actions">
+        <a class="button" href="/docs/">Read the site docs</a>
+        <a class="button secondary" href="/projects/">Browse projects</a>
+      </div>
+    </div>
+  </section>
+</SiteLayout>
