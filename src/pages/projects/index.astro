@@ -1,0 +1,33 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+---
+<SiteLayout title="Projects - Simon Gelbart" current="projects">
+  <section class="page-heading">
+    <p class="eyebrow">Projects</p>
+    <h1>Backend tools, libraries, and architecture labs.</h1>
+    <p class="lede">The global entry point for repositories, documentation sites, ADR logs, and project roadmaps.</p>
+  </section>
+
+  <section class="grid two-columns">
+    <article class="card large-card">
+      <p class="tag">Flagship library</p>
+      <h2><a href="https://simongelbart.github.io/pattrn/">Pattrn</a></h2>
+      <p>A fast immutable segmented-pattern matching library for .NET with a small core and layered extensions.</p>
+      <div class="actions card-actions">
+        <a class="button" href="https://simongelbart.github.io/pattrn/">Documentation</a>
+        <a class="button secondary" href="https://simongelbart.github.io/pattrn/adr/">ADRs</a>
+        <a class="button secondary" href="https://github.com/SimonGelbart/pattrn">Repository</a>
+      </div>
+    </article>
+    <article class="card large-card">
+      <p class="tag">Technical lab</p>
+      <h2><a href="https://simongelbart.github.io/lorq/">LORQ</a></h2>
+      <p>Ledger for Orchestrated Run Quality: reproducible evaluation runs with evidence capture and reporting.</p>
+      <div class="actions card-actions">
+        <a class="button" href="https://simongelbart.github.io/lorq/">Documentation</a>
+        <a class="button secondary" href="https://simongelbart.github.io/lorq/adr/">ADRs</a>
+        <a class="button secondary" href="https://github.com/SimonGelbart/lorq">Repository</a>
+      </div>
+    </article>
+  </section>
+</SiteLayout>
