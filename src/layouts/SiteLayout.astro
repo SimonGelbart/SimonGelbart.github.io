@@ -1,11 +1,15 @@
 ---
 import '../styles/site.css';
-const { title = 'Simon Gelbart - Backend Engineering Lab', description = 'Backend engineering lab and global documentation hub.', current = '' } = Astro.props;
+const {
+  title = 'Simon Gelbart — Backend Engineering Lab',
+  description = 'A public engineering lab for backend experiments and learning material.',
+  current = '',
+} = Astro.props;
 const nav = [
-  { href: '/projects/', label: 'Projects', key: 'projects' },
-  { href: '/learning-paths/', label: 'Learning Paths', key: 'learning' },
-  { href: '/notes/', label: 'Notes', key: 'notes' },
-  { href: '/about.html', label: 'About', key: 'about' },
+  { href: '/projects/', label: 'Projects', key: 'projects', description: 'see what is being built' },
+  { href: '/learning-paths/', label: 'Learning paths', key: 'learning', description: 'see what is being taught' },
+  { href: '/about.html', label: 'About', key: 'about', description: 'understand the lab' },
+  { href: 'https://github.com/SimonGelbart', label: 'GitHub ↗', key: 'github', description: 'inspect the source', external: true },
 ];
 ---
 <!doctype html>
@@ -15,17 +19,32 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/">Simon Gelbart</a>
-      <nav aria-label="Main navigation">
-        {nav.map((item) => <a href={item.href} aria-current={current === item.key ? 'page' : undefined}>{item.label}</a>)}
-        <a href="/docs/">Docs</a>
-        <a href="https://github.com/SimonGelbart">GitHub</a>
+      <a class="brand" href="/" aria-current={current === 'home' ? 'page' : undefined}>Simon Gelbart</a>
+      <nav class="desktop-nav" aria-label="Main navigation">
+        {nav.map((item) => <a href={item.href} aria-current={current === item.key ? 'page' : undefined} rel={item.external ? 'noreferrer' : undefined}>{item.label}</a>)}
       </nav>
+      <details class="mobile-nav">
+        <summary>Menu</summary>
+        <div class="mobile-nav__panel">
+          {nav.map((item) => (
+            <a href={item.href} aria-current={current === item.key ? 'page' : undefined} rel={item.external ? 'noreferrer' : undefined}>
+              <span>{item.label}</span>
+              <small>{item.description}</small>
+            </a>
+          ))}
+        </div>
+      </details>
     </header>
     <main><slot /></main>
-    <footer class="site-footer"><span>© Simon Gelbart</span><span>Built with Astro and Starlight.</span></footer>
+    <footer class="site-footer">
+      <span>© Simon Gelbart</span>
+      <span>A public engineering lab for backend experiments and learning material.</span>
+    </footer>
   </body>
 </html>

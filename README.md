@@ -54,3 +54,19 @@ Expected public URLs:
 - `https://simongelbart.github.io/dotnet-learning-lab/`
 
 GitHub Pages for this repository should use **GitHub Actions** as the publishing source.
+
+## Site direction
+
+The visible site is a public engineering lab for backend experiments and learning material. It should make architecture judgment, explicit boundaries, visible trade-offs, and evidence-backed project work the first credibility signals.
+
+The public navigation model is intentionally small: Projects, Learning paths, About, and GitHub. Notes and Docs are not part of the visible public navigation, even when supporting content remains available by direct URL.
+
+The visible site should feel like a minimal, flat, serious public engineering lab rather than a default Astro/Starlight site or startup landing page. The design uses warm technical neutrals, role-based pastel accents, flat panels, Lato typography, restrained monospace metadata, and visible evidence/status patterns.
+
+The `/docs/` route currently contains provisional site-system notes from the Astro/Starlight migration. It is intentionally not part of the public navigation. Revisit it later and either remove it, rename it, or fold the useful content into the About page or source documentation.
+
+Project repositories remain canonical for detailed docs, ADRs, APIs, package status, roadmaps, and deep technical truth. The main site owns editorial presentation: homepage order, public navigation, role labels, short summaries, selected evidence chips, and status framing.
+
+A future shared manifest or sync direction can reduce manual drift between project repositories and the main site once project metadata stabilizes. Until then, the shared `src/data/` files are editorial presentation data rather than canonical project manifests.
+
+Deployment workflow hardening is intentionally left for a separate maintenance PR because the current deployment already works. A generated `package-lock.json` is expected so installs and builds are easier to reproduce.

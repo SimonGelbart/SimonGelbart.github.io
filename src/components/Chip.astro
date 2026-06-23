@@ -1,0 +1,4 @@
+---
+const { label, code = false } = Astro.props;
+---
+<span class:list={['chip', { 'chip--code': code }]}>{label}</span>
