@@ -1,19 +1,36 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 ---
-<SiteLayout title="About - Simon Gelbart" current="about">
+<SiteLayout title="About — Simon Gelbart" current="about">
   <section class="page-heading narrow">
     <p class="eyebrow">About</p>
-    <h1>French senior backend developer interested in tooling, architecture, and deterministic systems.</h1>
-    <p class="lede">I use this site as a public home for personal projects: libraries, CLIs, automation tools, learning material, and backend architecture experiments.</p>
+    <h1>A public lab for backend architecture judgment.</h1>
   </section>
+
   <section class="section split">
-    <div><p class="eyebrow">Technical focus</p><h2>What I keep coming back to</h2></div>
-    <ul class="feature-list">
-      <li>Backend architecture and software design</li>
-      <li>Developer productivity and workflow tooling</li>
-      <li>Performance-aware library design</li>
-      <li>Reproducibility, evaluation, and orchestration</li>
-    </ul>
+    <div><p class="eyebrow">Person first</p><h2>About the lab</h2></div>
+    <div class="panel prose-panel">
+      <p>I’m Simon Gelbart, a .NET-focused backend developer in France with experience building and maintaining backend systems.</p>
+      <p>This site is my public engineering lab: a place where I use projects and learning material to think through backend architecture, modeling, documentation, and tooling.</p>
+      <p>I care about explicit boundaries, visible trade-offs, and designs that can evolve without hiding too much in conventions or memory.</p>
+      <p>Most of the work starts from the .NET ecosystem, but the questions are broader than one stack.</p>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div><p class="eyebrow">Philosophy</p><h2>Experiments, not finished products.</h2></div>
+    <div class="panel prose-panel">
+      <p>The projects here are active experiments. Some are libraries, some are tooling ideas, and some are learning material. They are not presented as finished products. They are places where I can make ideas concrete enough to inspect, document, and improve.</p>
+      <p>The best way to understand the lab is to inspect the projects, read the learning material, and follow the source.</p>
+      <div class="actions">
+        <a class="button" href="/projects/">Projects</a>
+        <a class="button" href="/learning-paths/">Learning paths</a>
+        <a class="button" href="https://github.com/SimonGelbart" rel="noreferrer">GitHub ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-compact">
+    <div class="note">The site itself is being shaped alongside the projects, so some structure may change as the lab becomes clearer.</div>
   </section>
 </SiteLayout>

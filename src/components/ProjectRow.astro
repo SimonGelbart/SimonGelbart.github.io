@@ -1,0 +1,28 @@
+---
+import Chip from './Chip.astro';
+const { project } = Astro.props;
+---
+<article class={`project-row accent-${project.accent}`}>
+  <aside class="project-row__meta" aria-label={`${project.name} metadata`}>
+    <div><span>Role</span><strong>{project.role}</strong></div>
+    <div><span>Status</span><strong>{project.statusLabel}</strong></div>
+    <div><span>Stack</span><strong>{project.stack}</strong></div>
+  </aside>
+  <div class="project-row__body">
+    <h2>{project.name}</h2>
+    <p class="meta-title">Starting point</p>
+    <p>{project.startingPoint}</p>
+    <p>{project.statusSentence}</p>
+    <div class="chip-row" aria-label={`${project.name} evidence`}>
+      {project.evidence.map((item) => <Chip label={item.label} code={item.code} />)}
+    </div>
+    <div class="quiet-actions" aria-label={`${project.name} links`}>
+      {project.links.map((link, index) => (
+        <>
+          <a href={link.href} rel={link.external ? 'noreferrer' : undefined}>{link.label}</a>
+          {index < project.links.length - 1 && <span aria-hidden="true">·</span>}
+        </>
+      ))}
+    </div>
+  </div>
+</article>

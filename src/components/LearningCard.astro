@@ -1,0 +1,12 @@
+---
+const { path, featured = false, showStatusText = false } = Astro.props;
+---
+<article class:list={['card learning-card', { 'learning-card--featured': featured }]}>
+  <div>
+    <span class="status-chip">{path.status}</span>
+    <h3>{path.title}</h3>
+    <p class="learning-subtitle">{path.subtitle}</p>
+    {showStatusText ? <p>{path.statusText}</p> : <p class="meta-line">{path.metadata}</p>}
+  </div>
+  <a class="button button-learning" href={path.href}>Open learning path</a>
+</article>

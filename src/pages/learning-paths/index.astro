@@ -1,21 +1,29 @@
 ---
 import SiteLayout from '../../layouts/SiteLayout.astro';
+import LearningCard from '../../components/LearningCard.astro';
+import { learningPaths } from '../../data/learningPaths';
+const featuredPath = learningPaths[0];
 ---
-<SiteLayout title="Learning Paths - Simon Gelbart" current="learning">
-  <section class="page-heading">
+<SiteLayout title="Learning paths — Simon Gelbart" current="learning">
+  <section class="page-heading narrow">
     <p class="eyebrow">Learning paths</p>
-    <h1>Practical learning material for backend and .NET developers.</h1>
-    <p class="lede">Courses, lessons, exercises, samples, and talks organized around concrete engineering trade-offs.</p>
+    <h1>Learning paths</h1>
+    <p class="lede">Learning material is another output of the lab: not a course marketplace, not a blog archive, but a place to shape backend design topics into practical paths.</p>
   </section>
-  <section class="grid two-columns">
-    <article class="card large-card">
-      <p class="tag">In progress · C# · .NET</p>
-      <h2><a href="https://simongelbart.github.io/dotnet-learning-lab/">Modern .NET Learning Lab</a></h2>
-      <p>The learning lab remains published from its own repository so lessons, examples, and optional labs stay together.</p>
-      <div class="actions card-actions">
-        <a class="button" href="https://simongelbart.github.io/dotnet-learning-lab/learning-paths/modern-csharp-type-design/">Modern C# Type Design</a>
-        <a class="button secondary" href="https://github.com/SimonGelbart/dotnet-learning-lab">Repository</a>
-      </div>
-    </article>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Teaching method</p>
+      <h2>Small decisions, visible trade-offs.</h2>
+    </div>
+    <div class="panel prose-panel"><p>I try to teach through small decisions: show a model, expose the trade-off, ask what can go wrong, then improve it.</p></div>
+  </section>
+
+  <section class="section">
+    <LearningCard path={featuredPath} featured showStatusText />
+  </section>
+
+  <section class="section section-compact">
+    <div class="note">Future paths will appear when a topic has enough examples, trade-offs, and structure to become useful learning material.</div>
   </section>
 </SiteLayout>

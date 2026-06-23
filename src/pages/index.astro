@@ -1,60 +1,85 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import LearningCard from '../components/LearningCard.astro';
+import { projects } from '../data/projects';
+import { learningPaths } from '../data/learningPaths';
+const featuredPath = learningPaths[0];
 ---
 <SiteLayout current="home">
   <section class="hero">
     <p class="eyebrow">Backend engineering lab</p>
-    <h1>Architecture-heavy libraries, docs, and learning paths for practical backend systems.</h1>
-    <p class="lede">
-      I’m Simon Gelbart, a French senior backend developer building personal projects around deterministic execution,
-      developer tooling, orchestration, and practical software design.
-    </p>
+    <h1>I design backend systems where boundaries, trade-offs, and evolution paths are explicit.</h1>
+    <p class="lede">The work here favors explicit models, small durable APIs, decision records, and documentation that makes trade-offs visible.</p>
+    <dl class="hero-metadata">
+      <div><dt>Home base</dt><dd>.NET</dd></div>
+      <div><dt>Current mode</dt><dd>active experiments, evolving in public</dd></div>
+      <div><dt>Evidence</dt><dd>docs, ADRs, examples</dd></div>
+      <div><dt>Output</dt><dd>projects and learning paths</dd></div>
+    </dl>
     <div class="actions">
-      <a class="button" href="/projects/">View projects</a>
-      <a class="button secondary" href="/learning-paths/">Explore learning paths</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <p class="eyebrow">Featured systems</p>
-      <h2>Current work</h2>
-    </div>
-    <div class="grid two-columns">
-      <article class="card">
-        <p class="tag">Library · .NET · Pattern matching</p>
-        <h3><a href="https://simongelbart.github.io/pattrn/">Pattrn</a></h3>
-        <p>Fast immutable segmented-pattern matching for .NET, focused on explicit semantics, package boundaries, diagnostics, and low-allocation hot paths.</p>
-        <div class="actions card-actions">
-          <a class="button" href="https://simongelbart.github.io/pattrn/">Docs</a>
-          <a class="button secondary" href="https://simongelbart.github.io/pattrn/adr/">ADRs</a>
-          <a class="button secondary" href="https://github.com/SimonGelbart/pattrn">Repo</a>
-        </div>
-      </article>
-      <article class="card">
-        <p class="tag">Technical lab · Orchestration · Evaluation</p>
-        <h3><a href="https://simongelbart.github.io/lorq/">LORQ</a></h3>
-        <p>An orchestration ledger for reproducible agent, tool, and skill evaluations, with emphasis on evidence capture, integrity, adapter conformance, and reporting.</p>
-        <div class="actions card-actions">
-          <a class="button" href="https://simongelbart.github.io/lorq/">Docs</a>
-          <a class="button secondary" href="https://simongelbart.github.io/lorq/adr/">ADRs</a>
-          <a class="button secondary" href="https://github.com/SimonGelbart/lorq">Repo</a>
-        </div>
-      </article>
+      <a class="button button-library" href="/projects/">View projects</a>
+      <a class="button button-learning" href="/learning-paths/">Explore learning paths</a>
     </div>
   </section>
 
   <section class="section split">
     <div>
-      <p class="eyebrow">Documentation system</p>
-      <h2>A shared shell for project docs, ADRs, and learning material.</h2>
+      <p class="eyebrow">Behind the lab</p>
+      <h2>Behind the lab</h2>
     </div>
-    <div class="card">
-      <p>The main site becomes the coherent entry point. Project repositories remain the source of truth, while Astro and Starlight provide the shared publishing layer.</p>
-      <div class="actions card-actions">
-        <a class="button" href="/docs/">Read the site docs</a>
-        <a class="button secondary" href="/projects/">Browse projects</a>
-      </div>
+    <div class="panel prose-panel">
+      <p>I’m Simon Gelbart, a .NET-focused backend developer in France with experience building and maintaining backend systems.</p>
+      <p>This site is my public engineering lab: a place where I use projects and learning material to think through backend architecture, modeling, documentation, and tooling.</p>
+      <p>Most of the work starts from the .NET ecosystem, but the questions are broader than one stack.</p>
+      <a class="text-link" href="/about.html">Read more about the lab →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">Active experiments</p>
+      <h2>Active experiments</h2>
+      <p>Each project starts from a practical need, a technical idea, or a design pressure worth exploring through code and documentation.</p>
+    </div>
+    <div class="project-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="section section-compact">
+    <div class="note">These projects — and this site around them — are active experiments. Some parts are usable, some are rough, and the shape of the lab will evolve as the work becomes clearer.</div>
+  </section>
+
+  <section class="section">
+    <div class="section-heading">
+      <p class="eyebrow">How I work</p>
+      <h2>How I work</h2>
+      <p>The details change from project to project, but the same habits show up in the work.</p>
+    </div>
+    <div class="principle-grid">
+      <article class="card principle"><h3>Explicit boundaries</h3><p>I prefer systems where responsibilities, contracts, and failure modes are visible before they become bugs.</p><p class="meta-line">Seen in: Pattrn package boundaries · LORQ adapter contracts</p></article>
+      <article class="card principle"><h3>Visible trade-offs</h3><p>I trust designs more when the cost of a decision is written down, not hidden in code or memory.</p><p class="meta-line">Seen in: ADRs · design notes</p></article>
+      <article class="card principle"><h3>Evidence over claims</h3><p>I want projects to show their reasoning through docs, tests, ADRs, examples, or reproducible outputs.</p><p class="meta-line">Seen in: LORQ reports · learning exercises</p></article>
+    </div>
+  </section>
+
+  <section class="section split">
+    <div>
+      <p class="eyebrow">Learning as another output</p>
+      <h2>Learning as another output</h2>
+      <p>Some ideas become libraries or tools. Others become lessons, examples, and decision guides.</p>
+    </div>
+    <LearningCard path={featuredPath} featured />
+  </section>
+
+  <section class="section">
+    <div class="section-heading"><h2>Explore next</h2></div>
+    <div class="explore-grid">
+      <a class="surface" href="/projects/"><strong>Projects</strong><span>See what is being built.</span></a>
+      <a class="surface" href="/learning-paths/"><strong>Learning paths</strong><span>See what is being taught.</span></a>
+      <a class="surface" href="/about.html"><strong>About</strong><span>Understand the lab.</span></a>
+      <a class="surface" href="https://github.com/SimonGelbart" rel="noreferrer"><strong>GitHub ↗</strong><span>Inspect the source.</span></a>
     </div>
   </section>
 </SiteLayout>
