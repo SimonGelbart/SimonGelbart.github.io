@@ -11,7 +11,7 @@ This repository owns:
 - the portfolio homepage;
 - project and learning-path indexes;
 - global cross-project notes;
-- lightweight project metadata under `data/`;
+- editorial project metadata under `src/data/`;
 - global publishing and design-system notes.
 
 It should not duplicate full project documentation. Project docs, ADRs, tutorials, how-to guides, reference pages, and explanations live in each project repository and are published from there.
@@ -39,13 +39,24 @@ npm run preview
 - `src/content/docs/` — Starlight documentation pages for the global publishing model
 - `src/layouts/` — shared custom page layout
 - `src/styles/` — custom site and Starlight CSS
-- `data/projects.json` — synchronized project metadata
+- `src/data/projects.ts` — main-site editorial project presentation data
+- `src/data/project-manifests/` — vendored stable project manifest snapshots for validation
+- `tools/validate-project-manifests.mjs` — anti-drift validation between editorial data and manifest snapshots
 - `.github/workflows/deploy.yml` — Astro GitHub Pages deployment workflow
-- `.github/workflows/sync-project-manifests.yml` — optional metadata synchronization workflow
 
 ## Documentation publishing model
 
-Each project repository remains the source of truth for its own documentation. The main site links to project documentation and may synchronize lightweight `docs/project.json` manifests from project repositories.
+Each project repository remains the source of truth for its own documentation. The main site links to project documentation and validates stable project facts against vendored `docs/project.json` manifest snapshots.
+
+## Project metadata boundary
+
+The main site owns editorial project presentation. Project repositories own canonical stable facts such as repository URL, documentation URL, ADR URL, and roadmap URL. The validation script compares vendored project manifests against the main-site project data so drift is caught without cross-repo write automation.
+
+Run the validation locally with:
+
+```bash
+npm run validate:project-manifests
+```
 
 Expected public URLs:
 
@@ -67,6 +78,6 @@ The `/docs/` route currently contains provisional site-system notes from the Ast
 
 Project repositories remain canonical for detailed docs, ADRs, APIs, package status, roadmaps, and deep technical truth. The main site owns editorial presentation: homepage order, public navigation, role labels, short summaries, selected evidence chips, and status framing.
 
-A future shared manifest or sync direction can reduce manual drift between project repositories and the main site once project metadata stabilizes. Until then, the shared `src/data/` files are editorial presentation data rather than canonical project manifests.
+Vendored manifest snapshots under `src/data/project-manifests/` are validation inputs only. They do not replace the editorial data in `src/data/projects.ts`, and CI does not fetch remote manifests or rewrite project copy.
 
 Deployment workflow hardening is intentionally left for a separate maintenance PR because the current deployment already works. A generated `package-lock.json` is expected so installs and builds are easier to reproduce.

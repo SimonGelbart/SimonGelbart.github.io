@@ -16,7 +16,7 @@ SimonGelbart.github.io
   project index
   learning-path index
   cross-project notes
-  synchronized project metadata
+  validated project metadata snapshots
 
 pattrn
   source code
@@ -56,9 +56,10 @@ https://simongelbart.github.io/dotnet-learning-lab/
 - the homepage;
 - the global project index;
 - global notes;
-- global metadata files under `data/`;
+- editorial project data under `src/data/`;
+- vendored project manifest snapshots under `src/data/project-manifests/`;
 - this roadmap;
-- optional synchronization workflows.
+- anti-drift validation workflows.
 
 It does not own full project documentation.
 
@@ -72,9 +73,9 @@ Each project repository owns:
 - `docs/project.json` metadata;
 - its own GitHub Actions Pages workflow.
 
-## Synchronization model
+## Validation model
 
-The main site should synchronize lightweight metadata, not generated documentation.
+The main site should validate lightweight metadata, not synchronize by writing across repositories.
 
 Each project exposes:
 
@@ -82,13 +83,13 @@ Each project exposes:
 docs/project.json
 ```
 
-The main site synchronization workflow reads the raw manifests from project repositories and updates:
+The main site stores reviewed manifest snapshots in:
 
 ```text
-data/projects.json
+src/data/project-manifests/
 ```
 
-The public HTML can then link to the published project documentation and source repositories.
+A validation script compares stable facts from those snapshots with `src/data/projects.ts`. The public HTML keeps using editorial project data, so card order, summaries, evidence chips, and status framing remain owned by the main site.
 
 ## Phases
 
@@ -104,9 +105,9 @@ Add `docs/project.json` to each project repository.
 
 Update the homepage and project page to link to project documentation, ADRs, and repositories.
 
-### Phase 4: Synchronize metadata
+### Phase 4: Validate metadata
 
-Use a scheduled or manual GitHub Action in this repository to refresh `data/projects.json` from project manifests.
+Use CI to validate stable facts in vendored manifest snapshots against the main-site editorial project data.
 
 ### Phase 5: Optional generated rendering
 
@@ -117,4 +118,6 @@ If the main site grows beyond static HTML, introduce a small build step that ren
 - Do not duplicate full project documentation in this repository.
 - Do not commit generated MkDocs HTML to `main`.
 - Do not make the main site depend on private or local files.
+- Do not grant project repositories write access to the main site.
+- Do not silently rewrite main-site editorial copy from project manifests.
 - Do not use transient task notes as public documentation.

@@ -1,0 +1,10 @@
+{
+  "name": "Pattrn",
+  "slug": "pattrn",
+  "kind": "Library experiment",
+  "status": "Pre-beta product shaping",
+  "repositoryUrl": "https://github.com/SimonGelbart/pattrn",
+  "docsUrl": "https://simongelbart.github.io/pattrn/",
+  "adrUrl": "https://simongelbart.github.io/pattrn/adr/",
+  "roadmapUrl": "https://simongelbart.github.io/pattrn/roadmap/"
+}
