@@ -10,6 +10,7 @@ export type Project = {
   links: Array<{ label: string; href: string; external?: boolean }>;
   current?: boolean;
   featured?: boolean;
+  archived?: boolean;
 };
 
 export const projects: Project[] = [
@@ -48,32 +49,32 @@ export const projects: Project[] = [
   {
     name: 'Pattrn',
     slug: 'pattrn',
-    eyebrow: 'Library experiment',
+    eyebrow: 'Archived testing field',
     accent: 'library',
     stack: 'C# / .NET 10',
-    status: 'Pre-beta',
-    summary: 'Fast immutable segmented-pattern matching for .NET, with explicit semantics and dependency-light package boundaries.',
-    description: 'The core indexes segmented patterns once, then resolves matching inputs predictably. Companion packages add strings, DI, and routing helpers.',
+    status: 'Archived',
+    summary: 'A testing field for fast immutable segmented-pattern matching and package-boundary experiments in .NET.',
+    description: 'The main branch is not under active development. The `experiment/pattrn-lean-core` branch tests whether a smaller continuation is worth pursuing.',
     links: [
       { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/pattrn', external: true },
       { label: 'Documentation ↗', href: 'https://github.com/SimonGelbart/pattrn/tree/main/docs', external: true },
     ],
-    featured: true,
+    archived: true,
   },
   {
     name: 'LORQ',
     slug: 'lorq',
-    eyebrow: 'Technical lab',
+    eyebrow: 'Archived testing field',
     accent: 'tooling',
     stack: 'Python / .NET',
-    status: 'Active prototype',
-    summary: 'A ledger for reproducible agent, tool, and skill evaluation runs, with evidence capture and decision-grade reports.',
-    description: 'The current work focuses on deterministic orchestration, package integrity, adapter contracts, and reporting before live runtime integrations.',
+    status: 'Archived',
+    summary: 'A testing field for reproducible agent, tool, and skill evaluation runs, evidence capture, and reporting.',
+    description: 'The repository is kept as a record of the experiment. It is not under active development and has no current roadmap or support commitment.',
     links: [
       { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/lorq', external: true },
       { label: 'Docs ↗', href: 'https://github.com/SimonGelbart/lorq/tree/main/docs', external: true },
     ],
-    featured: true,
+    archived: true,
   },
   {
     name: 'dotnet-learning-lab',
@@ -107,3 +108,4 @@ export const projects: Project[] = [
 
 export const currentProjects = projects.filter((project) => project.current);
 export const selectedProjects = projects.filter((project) => project.featured);
+export const archivedProjects = projects.filter((project) => project.archived);
