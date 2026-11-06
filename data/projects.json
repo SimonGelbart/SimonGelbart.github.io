@@ -20,19 +20,19 @@
   {
     "name": "Pattrn",
     "slug": "pattrn",
-    "kind": "Library experiment",
-    "status": "Pre-beta",
+    "kind": "Archived testing field",
+    "status": "Archived",
     "stack": "C# / .NET 10",
-    "summary": "Fast immutable segmented-pattern matching for .NET with explicit semantics and dependency-light package boundaries.",
+    "summary": "A testing field for fast immutable segmented-pattern matching and package-boundary experiments in .NET.",
     "repo": "https://github.com/SimonGelbart/pattrn"
   },
   {
     "name": "LORQ",
     "slug": "lorq",
-    "kind": "Technical lab",
-    "status": "Active prototype",
+    "kind": "Archived testing field",
+    "status": "Archived",
     "stack": "Python / .NET",
-    "summary": "A ledger for reproducible agent, tool, and skill evaluation runs, with evidence capture and decision-grade reports.",
+    "summary": "A testing field for reproducible agent, tool, and skill evaluation runs, evidence capture, and reporting.",
     "repo": "https://github.com/SimonGelbart/lorq"
   },
   {
