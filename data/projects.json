@@ -1,28 +1,47 @@
 [
   {
+    "name": "Tome Raider",
+    "slug": "book-manager",
+    "kind": "Application in progress",
+    "status": "MVP planning",
+    "stack": ".NET / Avalonia / EPUB",
+    "summary": "A personal EPUB catalogue for reading status, notes, ratings, and source-independent book identity.",
+    "repo": "https://github.com/SimonGelbart/book-manager"
+  },
+  {
+    "name": "Migration dynamic workflow",
+    "slug": "migration-dynamic-workflow",
+    "kind": "Developer tooling",
+    "status": "Prototype",
+    "stack": "TypeScript / Copilot",
+    "summary": "A workflow for incrementally migrating legacy Web Forms resources to an API-backed V2 implementation.",
+    "repo": "https://github.com/SimonGelbart/migration-dynamic-workflow"
+  },
+  {
     "name": "Pattrn",
     "slug": "pattrn",
-    "kind": "Flagship library",
-    "status": "Active development",
-    "stack": "C# / .NET",
-    "focus": "API design, matching semantics, package boundaries, performance",
-    "summary": "Fast immutable segmented-pattern matching for .NET with explicit semantics, package boundaries, diagnostics, and low-allocation hot paths.",
-    "repo": "https://github.com/SimonGelbart/pattrn",
-    "docs": "https://simongelbart.github.io/pattrn/",
-    "adr": "https://simongelbart.github.io/pattrn/adr/",
-    "roadmap": "https://simongelbart.github.io/pattrn/roadmap/"
+    "kind": "Library experiment",
+    "status": "Pre-beta",
+    "stack": "C# / .NET 10",
+    "summary": "Fast immutable segmented-pattern matching for .NET with explicit semantics and dependency-light package boundaries.",
+    "repo": "https://github.com/SimonGelbart/pattrn"
   },
   {
     "name": "LORQ",
     "slug": "lorq",
     "kind": "Technical lab",
     "status": "Active prototype",
-    "stack": "Python / .NET planning",
-    "focus": "Orchestration, reproducibility, evaluation, reporting",
-    "summary": "Ledger for Orchestrated Run Quality: reproducible agent, tool, and skill evaluation runs with evidence capture, integrity, adapter conformance, and reports.",
-    "repo": "https://github.com/SimonGelbart/lorq",
-    "docs": "https://simongelbart.github.io/lorq/",
-    "adr": "https://simongelbart.github.io/lorq/adr/",
-    "roadmap": "https://simongelbart.github.io/lorq/roadmap/"
+    "stack": "Python / .NET",
+    "summary": "A ledger for reproducible agent, tool, and skill evaluation runs, with evidence capture and decision-grade reports.",
+    "repo": "https://github.com/SimonGelbart/lorq"
+  },
+  {
+    "name": "dotnet-learning-lab",
+    "slug": "dotnet-learning-lab",
+    "kind": "Learning material",
+    "status": "Course blueprint",
+    "stack": ".NET / C# / teaching",
+    "summary": "Short learning paths, examples, and decision guides for modern .NET backend development.",
+    "repo": "https://github.com/SimonGelbart/dotnet-learning-lab"
   }
 ]

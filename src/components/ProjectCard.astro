@@ -1,22 +1,23 @@
 ---
-import Chip from './Chip.astro';
 const { project } = Astro.props;
 ---
-<article class={`card project-card accent-${project.accent}`}>
-  <p class="role-label">{project.role}</p>
-  <h3>{project.name}</h3>
-  <p class="meta-title">Starting point</p>
-  <p>{project.startingPoint}</p>
-  <p>{project.description}</p>
-  <div class="chip-row" aria-label={`${project.name} evidence`}>
-    {project.evidence.map((item) => <Chip label={item.label} code={item.code} />)}
+<article class={`project-card accent-${project.accent}`}>
+  <div class="project-card__top">
+    <span class="eyebrow">{project.eyebrow}</span>
+    <span class="status-chip">{project.status}</span>
   </div>
-  <div class="quiet-actions" aria-label={`${project.name} links`}>
-    {project.links.map((link, index) => (
-      <>
-        <a href={link.href} rel={link.external ? 'noreferrer' : undefined}>{link.label}</a>
-        {index < project.links.length - 1 && <span aria-hidden="true">·</span>}
-      </>
-    ))}
+  <h3>{project.name}</h3>
+  <p>{project.summary}</p>
+  <p class="project-card__description">{project.description}</p>
+  <div class="project-card__footer">
+    <span class="meta-line">{project.stack}</span>
+    <div class="quiet-actions" aria-label={`${project.name} links`}>
+      {project.links.map((link, index) => (
+        <>
+          <a href={link.href} rel={link.external ? 'noreferrer' : undefined}>{link.label}</a>
+          {index < project.links.length - 1 && <span aria-hidden="true">·</span>}
+        </>
+      ))}
+    </div>
   </div>
 </article>

@@ -3,13 +3,10 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
-    "validate:project-manifests": "node tools/validate-project-manifests.mjs"
+    "preview": "astro preview"
   },
   "dependencies": {
-    "@astrojs/starlight": "latest",
     "astro": "latest",
     "typescript": "latest"
-  },
-  "devDependencies": {}
+  }
 }

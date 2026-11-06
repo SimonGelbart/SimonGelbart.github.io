@@ -1,15 +1,15 @@
 ---
 import '../styles/site.css';
 const {
-  title = 'Simon Gelbart — Backend Engineering Lab',
-  description = 'A public engineering lab for backend experiments and learning material.',
+  title = 'Simon Gelbart — Backend developer',
+  description = 'A small portfolio of Simon Gelbart\'s backend projects, experiments, and learning material.',
   current = '',
 } = Astro.props;
 const nav = [
-  { href: '/projects/', label: 'Projects', key: 'projects', description: 'see what is being built' },
-  { href: '/learning-paths/', label: 'Learning paths', key: 'learning', description: 'see what is being taught' },
-  { href: '/about.html', label: 'About', key: 'about', description: 'understand the lab' },
-  { href: 'https://github.com/SimonGelbart', label: 'GitHub ↗', key: 'github', description: 'inspect the source', external: true },
+  { href: '/#work', label: 'Work', key: 'work' },
+  { href: '/#now', label: 'Now', key: 'now' },
+  { href: '/about', label: 'About', key: 'about' },
+  { href: 'https://github.com/SimonGelbart', label: 'GitHub ↗', key: 'github', external: true },
 ];
 ---
 <!doctype html>
@@ -19,20 +19,6 @@ const nav = [
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet" />
-    <script is:inline>
-      (() => {
-        try {
-          const theme = localStorage.getItem('site-theme');
-
-          if (theme === 'light' || theme === 'dark') {
-            document.documentElement.setAttribute('data-theme', theme);
-          }
-        } catch {}
-      })();
-    </script>
   </head>
   <body>
     <header class="site-header">
@@ -40,79 +26,18 @@ const nav = [
       <nav class="desktop-nav" aria-label="Main navigation">
         {nav.map((item) => <a href={item.href} aria-current={current === item.key ? 'page' : undefined} rel={item.external ? 'noreferrer' : undefined}>{item.label}</a>)}
       </nav>
-      <button class="theme-toggle" type="button" data-theme-toggle>Theme: System</button>
       <details class="mobile-nav">
         <summary>Menu</summary>
         <div class="mobile-nav__panel">
-          {nav.map((item) => (
-            <a href={item.href} aria-current={current === item.key ? 'page' : undefined} rel={item.external ? 'noreferrer' : undefined}>
-              <span>{item.label}</span>
-              <small>{item.description}</small>
-            </a>
-          ))}
+          {nav.map((item) => <a href={item.href} rel={item.external ? 'noreferrer' : undefined}>{item.label}</a>)}
         </div>
       </details>
     </header>
     <main><slot /></main>
     <footer class="site-footer">
-      <span>© Simon Gelbart</span>
-      <span>A public engineering lab for backend experiments and learning material.</span>
+      <span>Simon Gelbart</span>
+      <span>Backend systems · tools · learning material</span>
+      <a href="https://github.com/SimonGelbart" rel="noreferrer">GitHub ↗</a>
     </footer>
-    <script is:inline>
-      (() => {
-        const storageKey = 'site-theme';
-        const themes = ['system', 'light', 'dark'];
-
-        const getStoredTheme = () => {
-          try {
-            const value = localStorage.getItem(storageKey);
-            return themes.includes(value) ? value : 'system';
-          } catch {
-            return 'system';
-          }
-        };
-
-        const setStoredTheme = (theme) => {
-          try {
-            if (theme === 'system') {
-              localStorage.removeItem(storageKey);
-            } else {
-              localStorage.setItem(storageKey, theme);
-            }
-          } catch {}
-        };
-
-        const applyTheme = (theme) => {
-          if (theme === 'system') {
-            document.documentElement.removeAttribute('data-theme');
-          } else {
-            document.documentElement.setAttribute('data-theme', theme);
-          }
-
-          document.querySelectorAll('[data-theme-toggle]').forEach((button) => {
-            const label = theme.charAt(0).toUpperCase() + theme.slice(1);
-
-            button.textContent = `Theme: ${label}`;
-            button.setAttribute(
-              'aria-label',
-              `Current theme: ${label}. Click to change theme.`
-            );
-          });
-        };
-
-        applyTheme(getStoredTheme());
-
-        document.addEventListener('click', (event) => {
-          const button = event.target.closest('[data-theme-toggle]');
-          if (!button) return;
-
-          const current = getStoredTheme();
-          const next = themes[(themes.indexOf(current) + 1) % themes.length];
-
-          setStoredTheme(next);
-          applyTheme(next);
-        });
-      })();
-    </script>
   </body>
 </html>

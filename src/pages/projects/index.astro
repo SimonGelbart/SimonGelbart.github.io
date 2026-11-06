@@ -3,18 +3,18 @@ import SiteLayout from '../../layouts/SiteLayout.astro';
 import ProjectRow from '../../components/ProjectRow.astro';
 import { projects } from '../../data/projects';
 ---
-<SiteLayout title="Projects — Simon Gelbart" current="projects">
+<SiteLayout title="Projects — Simon Gelbart" current="work">
   <section class="page-heading narrow">
     <p class="eyebrow">Projects</p>
-    <h1>Projects</h1>
-    <p class="lede">A richer index of the public experiments behind the lab. Each project is active, evolving, and documented enough to inspect.</p>
+    <h1>The full list, with honest status.</h1>
+    <p class="lede">A short index of the public work. The repositories contain the details; this page gives you the context first.</p>
   </section>
 
-  <section class="project-list" aria-label="Public experiments">
+  <section class="project-list" aria-label="Projects">
     {projects.map((project) => <ProjectRow project={project} />)}
   </section>
 
   <section class="section section-compact">
-    <div class="note">Some applied experiments are still private or too early to publish. They may become public once there is enough code, documentation, and context to inspect.</div>
+    <div class="note">This list is intentionally small. If a repository is not here, the GitHub profile is the better place to find it.</div>
   </section>
 </SiteLayout>

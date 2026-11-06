@@ -1,85 +1,73 @@
 ---
 import SiteLayout from '../layouts/SiteLayout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import LearningCard from '../components/LearningCard.astro';
-import { projects } from '../data/projects';
-import { learningPaths } from '../data/learningPaths';
-const featuredPath = learningPaths[0];
+import { currentProjects, selectedProjects } from '../data/projects';
 ---
 <SiteLayout current="home">
   <section class="hero">
-    <p class="eyebrow">Backend engineering lab</p>
-    <h1>I design backend systems where boundaries, trade-offs, and evolution paths are explicit.</h1>
-    <p class="lede">The work here favors explicit models, small durable APIs, decision records, and documentation that makes trade-offs visible.</p>
-    <dl class="hero-metadata">
-      <div><dt>Home base</dt><dd>.NET</dd></div>
-      <div><dt>Current mode</dt><dd>active experiments, evolving in public</dd></div>
-      <div><dt>Evidence</dt><dd>docs, ADRs, examples</dd></div>
-      <div><dt>Output</dt><dd>projects and learning paths</dd></div>
-    </dl>
-    <div class="actions">
-      <a class="button button-library" href="/projects/">View projects</a>
-      <a class="button button-learning" href="/learning-paths/">Explore learning paths</a>
+    <div class="hero-copy">
+      <p class="eyebrow">Simon Gelbart · France</p>
+      <h1>Backend systems, tools, and learning material — built in public.</h1>
+      <p class="lede">I’m a senior backend developer working mostly with .NET and C#. This is the short version of what I’m building, exploring, and learning.</p>
+      <div class="actions">
+        <a class="button button-primary" href="#now">What I’m working on</a>
+        <a class="button" href="https://github.com/SimonGelbart" rel="noreferrer">Open GitHub ↗</a>
+      </div>
     </div>
+    <aside class="hero-note">
+      <span class="status-line"><span class="status-dot" aria-hidden="true"></span> Public work in progress</span>
+      <h2>Current focus</h2>
+      <p>Backend architecture, testing, developer tooling, and ways to make technical decisions easier to see.</p>
+      <div class="hero-note__tags">
+        <span>.NET / C#</span>
+        <span>TypeScript</span>
+        <span>Python</span>
+      </div>
+    </aside>
   </section>
 
-  <section class="section split">
-    <div>
-      <p class="eyebrow">Behind the lab</p>
-      <h2>Behind the lab</h2>
-    </div>
-    <div class="panel prose-panel">
-      <p>I’m Simon Gelbart, a .NET-focused backend developer in France with experience building and maintaining backend systems.</p>
-      <p>This site is my public engineering lab: a place where I use projects and learning material to think through backend architecture, modeling, documentation, and tooling.</p>
-      <p>Most of the work starts from the .NET ecosystem, but the questions are broader than one stack.</p>
-      <a class="text-link" href="/about.html">Read more about the lab →</a>
-    </div>
-  </section>
-
-  <section class="section">
+  <section class="section" id="now">
     <div class="section-heading">
-      <p class="eyebrow">Active experiments</p>
-      <h2>Active experiments</h2>
-      <p>Each project starts from a practical need, a technical idea, or a design pressure worth exploring through code and documentation.</p>
+      <p class="eyebrow">Now</p>
+      <h2>What I’m working on</h2>
+      <p>A small set of active projects. Some are useful already; some are still being figured out.</p>
+    </div>
+    <div class="project-grid project-grid--current">
+      {currentProjects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="section section-rule" id="work">
+    <div class="section-heading section-heading--split">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2>A few things worth looking at</h2>
+      </div>
+      <a class="text-link" href="/projects/">See all projects →</a>
     </div>
     <div class="project-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-
-  <section class="section section-compact">
-    <div class="note">These projects — and this site around them — are active experiments. Some parts are usable, some are rough, and the shape of the lab will evolve as the work becomes clearer.</div>
-  </section>
-
-  <section class="section">
-    <div class="section-heading">
-      <p class="eyebrow">How I work</p>
-      <h2>How I work</h2>
-      <p>The details change from project to project, but the same habits show up in the work.</p>
-    </div>
-    <div class="principle-grid">
-      <article class="card principle"><h3>Explicit boundaries</h3><p>I prefer systems where responsibilities, contracts, and failure modes are visible before they become bugs.</p><p class="meta-line">Seen in: Pattrn package boundaries · LORQ adapter contracts</p></article>
-      <article class="card principle"><h3>Visible trade-offs</h3><p>I trust designs more when the cost of a decision is written down, not hidden in code or memory.</p><p class="meta-line">Seen in: ADRs · design notes</p></article>
-      <article class="card principle"><h3>Evidence over claims</h3><p>I want projects to show their reasoning through docs, tests, ADRs, examples, or reproducible outputs.</p><p class="meta-line">Seen in: LORQ reports · learning exercises</p></article>
+      {selectedProjects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
 
   <section class="section split">
     <div>
-      <p class="eyebrow">Learning as another output</p>
-      <h2>Learning as another output</h2>
-      <p>Some ideas become libraries or tools. Others become lessons, examples, and decision guides.</p>
+      <p class="eyebrow">How I work</p>
+      <h2>Make the important parts visible.</h2>
     </div>
-    <LearningCard path={featuredPath} featured />
+    <div class="about-copy">
+      <p>I like backend work that has clear boundaries, predictable behavior, and tests that explain the decisions behind the code.</p>
+      <p>When an idea is worth sharing, I turn it into a library, a small tool, a learning path, or a note that someone else can inspect.</p>
+      <a class="text-link" href="/about">A little more about me →</a>
+    </div>
   </section>
 
-  <section class="section">
-    <div class="section-heading"><h2>Explore next</h2></div>
-    <div class="explore-grid">
-      <a class="surface" href="/projects/"><strong>Projects</strong><span>See what is being built.</span></a>
-      <a class="surface" href="/learning-paths/"><strong>Learning paths</strong><span>See what is being taught.</span></a>
-      <a class="surface" href="/about.html"><strong>About</strong><span>Understand the lab.</span></a>
-      <a class="surface" href="https://github.com/SimonGelbart" rel="noreferrer"><strong>GitHub ↗</strong><span>Inspect the source.</span></a>
+  <section class="follow-card">
+    <div>
+      <p class="eyebrow">Follow along</p>
+      <h2>The most current version is on GitHub.</h2>
+      <p>I keep the repositories as the source of truth. This page is just the map.</p>
     </div>
+    <a class="button button-primary" href="https://github.com/SimonGelbart" rel="noreferrer">Visit GitHub ↗</a>
   </section>
 </SiteLayout>

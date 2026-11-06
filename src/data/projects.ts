@@ -1,92 +1,109 @@
-// Main-site editorial project data.
-// Project repositories remain canonical for detailed docs, ADRs, APIs, package status, and roadmaps.
-// Keep stable facts aligned with project manifests/docs when they exist.
-
 export type Project = {
   name: string;
   slug: string;
-  role: string;
+  eyebrow: string;
   accent: 'library' | 'tooling' | 'learning' | 'applied';
   stack: string;
-  startingPoint: string;
+  status: string;
+  summary: string;
   description: string;
-  statusLabel: string;
-  statusSentence: string;
-  evidence: Array<{ label: string; code?: boolean }>;
   links: Array<{ label: string; href: string; external?: boolean }>;
+  current?: boolean;
   featured?: boolean;
 };
 
 export const projects: Project[] = [
   {
+    name: 'Tome Raider',
+    slug: 'book-manager',
+    eyebrow: 'Application in progress',
+    accent: 'applied',
+    stack: '.NET / Avalonia / EPUB',
+    status: 'MVP planning',
+    summary: 'A personal EPUB catalogue for reading status, notes, ratings, and source-independent book identity.',
+    description: 'The product scope, domain model, testing approach, and implementation plan are being worked through in public.',
+    links: [
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/book-manager', external: true },
+      { label: 'Product brief ↗', href: 'https://github.com/SimonGelbart/book-manager/blob/main/docs/planning/product-brief.md', external: true },
+    ],
+    current: true,
+    featured: true,
+  },
+  {
+    name: 'Migration dynamic workflow',
+    slug: 'migration-dynamic-workflow',
+    eyebrow: 'Developer tooling',
+    accent: 'tooling',
+    stack: 'TypeScript / Copilot',
+    status: 'Prototype',
+    summary: 'A Copilot project extension for incrementally migrating legacy Web Forms resources to an API-backed V2 implementation.',
+    description: 'The workflow makes inspection, initialization, discovery, and decision checkpoints explicit before application code is changed.',
+    links: [
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/migration-dynamic-workflow', external: true },
+      { label: 'Workflow notes ↗', href: 'https://github.com/SimonGelbart/migration-dynamic-workflow/blob/main/docs/workflow.md', external: true },
+    ],
+    current: true,
+    featured: true,
+  },
+  {
     name: 'Pattrn',
     slug: 'pattrn',
-    role: 'Library experiment',
+    eyebrow: 'Library experiment',
     accent: 'library',
-    stack: '.NET / C# library',
-    startingPoint: 'A need for segmented pattern matching with explicit semantics, stable APIs, and predictable behavior in backend code.',
-    description: 'Pattrn is a .NET library experiment around matching semantics, API shape, package boundaries, validation, and performance-conscious implementation.',
-    statusLabel: 'Active experiment',
-    statusSentence: 'Pattrn is usable as a library experiment, but its API surface, performance story, and applied examples are still being shaped.',
-    evidence: [
-      { label: 'API design' },
-      { label: 'Validation' },
-      { label: 'Package boundaries' },
-      { label: 'Hot-path optimization' },
-      { label: 'Span<T>', code: true },
-    ],
+    stack: 'C# / .NET 10',
+    status: 'Pre-beta',
+    summary: 'Fast immutable segmented-pattern matching for .NET, with explicit semantics and dependency-light package boundaries.',
+    description: 'The core indexes segmented patterns once, then resolves matching inputs predictably. Companion packages add strings, DI, and routing helpers.',
     links: [
-      { label: 'Docs', href: 'https://simongelbart.github.io/pattrn/' },
-      { label: 'ADRs', href: 'https://simongelbart.github.io/pattrn/adr/' },
-      { label: 'Repo ↗', href: 'https://github.com/SimonGelbart/pattrn', external: true },
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/pattrn', external: true },
+      { label: 'Documentation ↗', href: 'https://github.com/SimonGelbart/pattrn/tree/main/docs', external: true },
     ],
     featured: true,
   },
   {
     name: 'LORQ',
     slug: 'lorq',
-    role: 'Tooling experiment',
+    eyebrow: 'Technical lab',
     accent: 'tooling',
-    stack: 'Python tooling',
-    startingPoint: 'A need to compare agent/tool/skill suites through reproducible runs, captured evidence, and reports that make usefulness easier to judge.',
-    description: 'LORQ explores reproducible orchestration, evidence capture, failure classification, and reporting for AI skill evaluation workflows.',
-    statusLabel: 'Active experiment',
-    statusSentence: 'LORQ is an active tooling experiment for comparing agent/tool/skill suites, with the evidence model and reporting flow still evolving.',
-    evidence: [
-      { label: 'Skill comparison' },
-      { label: 'Evidence capture' },
-      { label: 'Failure classification' },
-      { label: 'Reports' },
-      { label: 'Reproducibility' },
-    ],
+    stack: 'Python / .NET',
+    status: 'Active prototype',
+    summary: 'A ledger for reproducible agent, tool, and skill evaluation runs, with evidence capture and decision-grade reports.',
+    description: 'The current work focuses on deterministic orchestration, package integrity, adapter contracts, and reporting before live runtime integrations.',
     links: [
-      { label: 'Docs', href: 'https://simongelbart.github.io/lorq/' },
-      { label: 'ADRs', href: 'https://simongelbart.github.io/lorq/adr/' },
-      { label: 'Repo ↗', href: 'https://github.com/SimonGelbart/lorq', external: true },
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/lorq', external: true },
+      { label: 'Docs ↗', href: 'https://github.com/SimonGelbart/lorq/tree/main/docs', external: true },
     ],
     featured: true,
   },
   {
     name: 'dotnet-learning-lab',
     slug: 'dotnet-learning-lab',
-    role: 'Learning experiment',
+    eyebrow: 'Learning material',
     accent: 'learning',
-    stack: '.NET / C# learning material',
-    startingPoint: 'A way to test how short lessons, prediction questions, examples, and reference notes can make backend design easier to teach.',
-    description: 'dotnet-learning-lab is where backend design topics become structured learning paths, especially around modern C#, type modeling, and practical design decisions.',
-    statusLabel: 'Active experiment',
-    statusSentence: 'dotnet-learning-lab is an active learning experiment, with the Modern C# Type Design path being shaped into short lessons, examples, and decision guides.',
-    evidence: [
-      { label: 'Short lessons' },
-      { label: 'Prediction questions' },
-      { label: 'Type modeling' },
-      { label: 'Examples' },
-      { label: 'Decision guides' },
-    ],
+    stack: '.NET / C# / teaching',
+    status: 'Course blueprint',
+    summary: 'Short learning paths, examples, and decision guides for modern .NET backend development.',
+    description: 'The first public path explores Modern C# Type Design: modeling valid states, choosing stable identities, and making trade-offs visible.',
     links: [
-      { label: 'Learning path', href: 'https://simongelbart.github.io/dotnet-learning-lab/learning-paths/modern-csharp-type-design/' },
-      { label: 'Repo ↗', href: 'https://github.com/SimonGelbart/dotnet-learning-lab', external: true },
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/dotnet-learning-lab', external: true },
+      { label: 'Course outline ↗', href: 'https://github.com/SimonGelbart/dotnet-learning-lab/blob/main/learning-paths/modern-csharp-type-design/outline.md', external: true },
     ],
     featured: true,
   },
+  {
+    name: 'LDAP Testcontainer',
+    slug: 'ldap-testcontainer',
+    eyebrow: 'Integration testing',
+    accent: 'applied',
+    stack: 'Python / OpenLDAP / Testcontainers',
+    status: 'Working utility',
+    summary: 'A local OpenLDAP image builder and reusable testkit for integration tests against converted directory schemas.',
+    description: 'Private directory data stays outside source control; the public repository contains the workflow and tooling around the test image.',
+    links: [
+      { label: 'Repository ↗', href: 'https://github.com/SimonGelbart/ldap-testcontainer', external: true },
+    ],
+  },
 ];
+
+export const currentProjects = projects.filter((project) => project.current);
+export const selectedProjects = projects.filter((project) => project.featured);
